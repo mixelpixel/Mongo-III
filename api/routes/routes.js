@@ -1,16 +1,22 @@
 module.exports = (app) => {
   //add your new routes here
-  const userController = require('../controllers/userControllers');
-  const postController = require('../controllers/postControllers');
+  // TODO: import in all the user controllers
+  const userControllers = require('../controllers/userControllers');
+  const postControllers = require('../controllers/postControllers');
+
   app.route('/new-user')
-  .post(userController.createUser);
+  .post(userControllers.createUser);
+
   app.route('/login')
-  .post(userController.userLogin);
+    .post(userControllers.login);
+
   app.route('/new-post')
-  .post(postController.createPost);
+    .post(postControllers.createNewPost);
+
   app.route('/posts')
-  .get(postController.postList);
+    .get(postControllers.getAllBlogPosts);
+
   app.route('/posts/:id')
-  .get(postController.getPost)
-  .put(postController.updatePost);
+    .get(postControllers.getPostById)
+    .put(postControllers.addCommentsToPost);
 };

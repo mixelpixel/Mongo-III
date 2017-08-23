@@ -12,7 +12,7 @@ class App extends Component {
       loggedIn: false,
     }
   }
-  
+
   componentWillMount() {
     if (localStorage.getItem('uuID')) {
       this.setState({loggedIn: true});
@@ -25,7 +25,7 @@ class App extends Component {
     localStorage.setItem('uuID', '');
     window.location = '/';
   }
-  
+
   render() {
     const { loggedIn } = this.state;
     return (
@@ -42,7 +42,7 @@ class App extends Component {
         <Route path="/posts" exact component={ Pages.BlogPosts }></Route>
         <Route path="/posts/:id" component={ Pages.SingleBlogPost }></Route>
         <Route path="/new-post" component={ Pages.CreatePost }></Route>
-        
+
       </div>
     );
   }
